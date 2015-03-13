@@ -4,6 +4,10 @@
 		"selected_items":
 		[
 			[
+				"Tm",
+				"TmdbApi"
+			],
+			[
 				"Tmdb",
 				"TmdbApiFactory"
 			],
@@ -143,7 +147,7 @@
 			"file": "app/scripts/main.js",
 			"settings":
 			{
-				"buffer_size": 624,
+				"buffer_size": 666,
 				"line_ending": "Unix"
 			}
 		},
@@ -159,7 +163,7 @@
 			"file": "app/scripts/controllers/home.js",
 			"settings":
 			{
-				"buffer_size": 289,
+				"buffer_size": 552,
 				"line_ending": "Unix"
 			}
 		},
@@ -167,7 +171,7 @@
 			"file": "app/config.js",
 			"settings":
 			{
-				"buffer_size": 908,
+				"buffer_size": 989,
 				"line_ending": "Unix"
 			}
 		},
@@ -183,7 +187,7 @@
 			"file": "app/views/home.html",
 			"settings":
 			{
-				"buffer_size": 64,
+				"buffer_size": 175,
 				"line_ending": "Unix"
 			}
 		}
@@ -442,15 +446,15 @@
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 624,
+						"buffer_size": 666,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								544,
-								544
+								470,
+								470
 							]
 						],
 						"settings":
@@ -479,8 +483,8 @@
 						"selection":
 						[
 							[
-								491,
-								491
+								480,
+								480
 							]
 						],
 						"settings":
@@ -502,15 +506,15 @@
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 289,
+						"buffer_size": 552,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								285,
-								285
+								62,
+								62
 							]
 						],
 						"settings":
@@ -530,15 +534,15 @@
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 908,
+						"buffer_size": 989,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								22,
-								22
+								21,
+								21
 							]
 						],
 						"settings":
@@ -551,7 +555,7 @@
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 5,
+					"stack_index": 3,
 					"type": "text"
 				},
 				{
@@ -567,8 +571,8 @@
 						"selection":
 						[
 							[
-								288,
-								288
+								287,
+								287
 							]
 						],
 						"settings":
@@ -581,7 +585,7 @@
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 3,
+					"stack_index": 5,
 					"type": "text"
 				},
 				{
@@ -590,15 +594,15 @@
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 64,
+						"buffer_size": 175,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								60,
-								60
+								124,
+								124
 							]
 						],
 						"settings":
