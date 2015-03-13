@@ -28,6 +28,7 @@ config(['$routeProvider', ($routeProvider) => {
     $routeProvider
         .when('/', {
             templateUrl: 'views/home.html',
-            controller: 'HomeController'
+            controller: 'HomeController',
+            controllerAs: 'ctrl'
         });
 }]);
