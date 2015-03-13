@@ -14,7 +14,7 @@ angular.module('app.controllers', [
 ]);
 angular.module('app.directives', []);
 angular.module('app.services', [
-    'app.services.tmdb'
+    tmdbService
 ]);
 
 angular.module('app', [
