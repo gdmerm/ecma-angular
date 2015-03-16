@@ -1,5 +1,6 @@
 let moduleName = 'app.controllers.home';
-import _ from 'underscore';
+import _ from 'lodash';
+import tmdbModule from '../services/tmdb-api';
 
 class HomeController {
     constructor(TmdbApi) {
@@ -18,7 +19,6 @@ class HomeController {
 }
 
 HomeController.$inject = ['TmdbApi'];
-angular.module(moduleName, [])
-.controller('HomeController', HomeController)
+angular.module(moduleName, [tmdbModule]).controller('HomeController', HomeController);
 
 export default moduleName;

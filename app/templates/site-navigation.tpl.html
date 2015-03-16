@@ -1,0 +1,14 @@
+<div bs-navbar="" class="navbar navbar-default">
+  <div class="container">
+    <div class="navbar-header"><a href="{{ ctrl.rootPath }}" class="navbar-brand"><span>Entersoft</span><sup>Knowledge Base</sup></a></div>
+    <ul class="nav navbar-nav ng-hide">
+      <li data-match-route="/?(navbar)?"><a href="">Home</a></li>
+      <li><a href="">Page One</a></li>
+    </ul>
+    <div class="images">
+      <ul ng-cloak="ng-cloak" ng-if="!ctrl.session.isGuest()" class="nav navbar-nav navbar-right">
+        <li class="dropdown"><a data-html="true" role="button" bs-dropdown="ctrl.userOptions" data-animation="am-flip-x" aria-expanded="false" class="dropdown-toggle">{{ ctrl.session.getModel().Name }}<span class="caret">                       </span></a></li>
+      </ul>
+    </div>
+  </div>
+</div>

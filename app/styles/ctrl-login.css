@@ -1,0 +1,145 @@
+/**
+ * oauth styles
+ */
+ .ctrl-login h1 {
+    margin-bottom:0;
+    font-weight:200;
+}
+.ctrl-login .oauth-login {
+    margin:0;
+}
+.ctrl-login .oauth-login h2 {
+    font-size:1.4em;
+    color:#666;
+    font-weight:300;
+    margin:15px 0 15px 0;
+}
+
+.ctrl-login .btn-oauth {
+    color: #fff;
+    margin:10px 0;
+}
+.ctrl-login .btn-facebook {
+    border-color: #3b5998;
+    background-color: #3b5998;
+}
+.ctrl-login .btn-facebook:hover {
+    color: #3b5998;
+    background-color: #fff;
+}
+.ctrl-login .btn-linkedin {
+    border-color: #007bb6;
+    background-color: #007bb6;
+}
+.ctrl-login .btn-linkedin:hover {
+    color:#007bb6;
+    background-color: #fff;
+}
+.ctrl-login .or-separator::before {
+    border-top: 1px solid #e1e1e1;
+    content: ' ';
+    display: block;
+    height: 0;
+    position: absolute;
+    top: 50%;
+    width: 48%;
+    z-index: -1
+}
+.ctrl-login .or-separator::after {
+    border-top: 1px solid #e1e1e1;
+    content: ' ';
+    display: block;
+    height: 0;
+    position: absolute;
+    right: 0;
+    top: 50%;
+    width: 48%;
+    z-index: -1
+}
+.ctrl-login .or-separator {
+    text-align:center;
+    position:relative;
+    z-index:2;
+    color:#999;
+    margin:20px 0;
+    font-size:1.8em;
+}
+
+.ctrl-login .btn-login {
+    width:100%;
+}
+.ctrl-login .do-login .form-group label {
+    vertical-align: middle
+}
+.ctrl-login input[type="text"],
+.ctrl-login input[type="password"] {
+    padding: .8em;
+    font-size:1.3em;
+    height:100%;
+}
+.ctrl-login .input-group-addon {
+    background-color: transparent
+}
+
+/**
+ * register styles
+ */
+.ctrl-login.view-register .g-captcha {
+    position:relative;
+    left:10px;
+    margin-bottom:20px;
+}
+.ctrl-login .error-500 {
+    width:500px;
+    height:500px;
+    background:url(../images/500-sonic.jpg) no-repeat 0 0;
+    margin:0 auto;
+}
+.ctrl-login .sonic {
+    padding-bottom:40px;
+}
+
+/* 404 styles */
+.ctrl-login .error-404 {
+    width:330px;
+    height:280px;
+    background:url(../images/404.png) no-repeat 0 0;
+    margin:0 auto;
+    opacity:.7;
+}
+.view-404 {
+    background-color: #fff;
+    font-family: roboto;
+}
+.view-404 h1 > span {
+    font-size:3em;
+    font-weight:200;
+}
+.view-404 h1 + p {
+    font-size:3em;
+    margin:1em 0;
+}
+.view-404 .btn {
+    background-color:#000;
+    padding-left:40px;
+    padding-right:40px;
+    margin:1em 0;
+}
+
+
+
+@media (min-width: 768px) {
+    .ctrl-login .oauth-facebook {
+        text-align: right;
+    } 
+    .ctrl-login .oauth-linkedin {
+        text-align:left;
+    }
+    .ctrl-login .btn-oauth {
+        margin:0;
+    }
+    .ctrl-login .oauth-login {
+        margin:40px 0 20px 0;
+    }
+}
+

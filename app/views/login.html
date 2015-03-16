@@ -1,0 +1,66 @@
+<div class="ctrl-login view-login">
+    <div class="es-panel">
+        <section class="oauth-login">
+            <h1 class="text-center">Log In</h1>
+            <aside class="text-center">
+                <h2>Don't have an account? <a href="#register">Register</a></h2>
+            </aside>
+            <div class="row">
+                <div class="col-xs-12 col-sm-6 oauth-facebook text-center">
+                    <a href ng-click="ctrl.doFbLogin()" class="btn btn-large btn-oauth btn-facebook">
+                        <span class="fa fa-facebook"></span>
+                        <span>Log In with Facebook</span>
+                    </a>
+                </div>
+                <div class="col-xs-12 col-sm-6 oauth-linkedin text-center">
+                    <a href class="btn btn-large btn-oauth btn-linkedin">
+                        <span class="fa fa-linkedin"></span>
+                        <span>Log In with LinkedIn</span>
+                    </a>
+                </div>
+            </div>
+        </section>
+
+        <div class="or-separator">or</div>
+
+        <section class="do-login clearfix row">
+            <div class="col-xs-12 col-sm-offset-3 col-sm-6 col-md-4 col-md-offset-4">
+                <form name="loginForm">
+                    <div class="form-group">
+                        <div class="input-group">
+                            <span class="input-group-addon">
+                                <span class="fa fa-user"></span>
+                            </span>
+                            <input type="text" ng-model="ctrl.user.UserID" class="form-control" placeholder="email">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <div class="input-group">
+                            <span class="input-group-addon">
+                                <span class="fa fa-lock"></span>
+                            </span>
+                            <input type="password" ng-model="ctrl.user.Password" class="form-control" placeholder="password">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <div class="row row-no-padding">
+                            <div class="col-xs-4">
+                                <input id="remember" type="checkbox" />
+                                <label for="remember">Remember me</label>                                
+                            </div>
+                            <div class="col-xs-8 text-right">
+                                <input id="newsletter" type="checkbox" />
+                                <label for="newsletter">I wish to receive the newsletter</label>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <div>
+                            <button es-analytics-on class="btn btn-lg btn-warning btn-login" ng-click="ctrl.doLogin()">Login</button>
+                        </div>
+                    </form> 
+                </div>
+            </section>
+
+    </div><!-- es-panel -->
+</div>

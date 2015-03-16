@@ -7,12 +7,19 @@
     },
     "dependencies": {
       "angular": "bower:angular@^1.3.14",
+      "angular-loading-bar": "bower:angular-loading-bar@^0.7.1",
+      "angular-motion": "bower:angular-motion@^0.3.4",
       "angular-route": "bower:angular-route@^1.3.14",
       "angular-sanitize": "bower:angular-sanitize@^1.3.14",
+      "angular-utils-pagination": "bower:angular-utils-pagination@^0.5.1",
+      "bootstrap": "github:twbs/bootstrap@^3.3.2",
       "eswebapiangularjs": "bower:eswebapiangularjs@^0.0.44",
+      "lodash": "npm:lodash@^3.5.0",
       "log4javascript": "bower:log4javascript@1.4.9",
+      "moment": "npm:moment@^2.9.0",
       "ngstorage": "bower:ngstorage@^0.3.0",
       "stacktrace-js": "bower:stacktrace-js@0.6.4",
+      "toastr": "bower:toastr@^2.1.1",
       "underscore": "npm:underscore@^1.8.2"
     }
   }

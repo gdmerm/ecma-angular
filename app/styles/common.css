@@ -1,0 +1,118 @@
+@font-face {
+  font-family: 'Proxima Nova Light';
+  src: 
+    url('../fonts/proxima/proxima-nova-light.woff') format('woff2'), /* Chrome 26+, Opera 23+ */
+    url('../fonts/proxima/proxima-nova-light.woff') format('woff'); /* Chrome 6+, Firefox 3.6+, IE 9+, Safari 5.1+ */
+}
+
+@font-face {
+  font-family: 'Proxima Nova Bold';
+  src: 
+    url('../fonts/proxima/proxima-nova-bold.woff') format('woff2'), /* Chrome 26+, Opera 23+ */
+    url('../fonts/proxima/proxima-nova-bold.woff') format('woff'); /* Chrome 6+, Firefox 3.6+, IE 9+, Safari 5.1+ */
+}
+
+body {
+    font-family:roboto;
+    line-height:1.5;
+    font-size:12px;
+    background-color:#ececec;
+    -webkit-text-size-adjust: 100%;
+    overflow-x:hidden;
+}
+
+.row-centered {
+    text-align:center;
+}
+
+.col-centered {
+    display:inline-block;
+    float:none;
+    /* reset the text-align */
+    text-align:left;
+    /* inline-block space fix */
+    margin-right:-4px;
+}
+
+.es-panel {
+    margin-top: 10px;
+    margin-bottom:10px;
+    background-color: #fff;
+    box-shadow: 0 0 2px rgba(0,0,0,.12),0 2px 4px rgba(0,0,0,.24);
+    padding:10px 20px;
+}
+
+.es-panel h1 {
+    margin:0;
+    font-weight:400;
+}
+
+.row-no-padding {
+    margin-left: 0;
+    margin-right: 0;
+}
+.row-no-padding [class*="col-"] {
+    padding-left: 0 !important;
+    padding-right: 0 !important;
+}
+
+.row-md-padding {
+    margin-left: 10px;
+    margin-right: 10px;
+}
+.row-md-padding [class*="col-"] {
+    padding-left: 10px !important;
+    padding-right: 10px !important;
+}
+
+.app-loader {
+    width:100%;
+    height:100%;
+    position:absolute;
+    z-index:9999;
+    top:0;
+    background:url(../images/search-loader.gif) no-repeat 50% 20% rgba(255,255,255,.65);
+    width:200%;
+    left:-50%;
+}
+
+.site-footer {
+    margin: 40px 0;
+    box-shadow: none;
+    padding-top: 20px;
+    padding-bottom: 20px
+}
+
+.site-footer li > a {
+    font-size:1.4em;
+    color:#999;
+}
+
+.navbar .dropdown > a {
+    font-size:1.5em;
+}
+
+.navbar .dropdown-menu {
+    width:100%;
+}
+
+.navbar-default .navbar-nav .open .dropdown-menu > li > a {
+    cursor:pointer;
+}
+
+.__dir-star-rater .fa-star {
+    color:rgb(226, 180, 48);
+}
+
+@media (max-width: 767px) {
+    .navbar-default .navbar-nav .open .dropdown-menu > li > a {
+        color:#fff;
+        font-size:1.2em;
+    }
+}
+
+@media (min-width: 768px) {
+    .app-loader {
+        top:0;
+    }
+}
