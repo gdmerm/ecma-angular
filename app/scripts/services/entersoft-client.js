@@ -126,7 +126,44 @@ angular.module('app.services.esclient', [])
             $httpProvider.interceptors.push(interceptor);
         },
         $get: function () {
-            return {};
+            return {
+                getRunnerConfiguration: function ($rootScope, Environment, $log, $templateCache, esGlobals, $location, EsUser, UrlManager) {
+                    /**
+                     * a list of protected pages
+                     * @type {Array}
+                     */
+                    $templateCache.remove('templates/site-navigation.tpl.html');
+
+                    $rootScope.$on('$routeChangeError', function (e, current, previous, rejection) {
+                        if (rejection === 'auth:notauthorized') {
+                            console.log('not authorized');
+                            var redirect = $location.path();
+                            UrlManager.redirectQueryString = $location.search();
+                            $location.url($location.path());
+                            $location.path('/login');
+                            $location.search('onsuccessredirect', redirect);
+                        }
+                    });
+
+                    $rootScope.$on('$routeChangeSuccess', function (event, current, next) {
+                        var user = new EsUser();
+                        window.$location = $location;
+                        $rootScope.$broadcast('auth:session', esGlobals.currentUser);
+                    });
+
+                    $rootScope.$on('$routeChangeStart', function(event, next, current) {
+                        //disable template caching on dev stage
+                        if (next.$$route) {
+                            if (Environment.isDev() && typeof next !== 'undefined') {
+                                $log.info('purging cached template: ', next.$$route.templateUrl)
+                                $templateCache.remove(next.$$route.templateUrl);
+                                //todo:hardcoded entry. Should think how to tackle this problem
+                                $templateCache.remove('templates/site-navigation.tpl.html');
+                            }
+                        }
+                    });
+                }
+            };
         }
     };
 }]);
