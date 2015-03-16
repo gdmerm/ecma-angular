@@ -89,6 +89,17 @@ config(['$routeProvider', 'EnvironmentProvider', 'es.Services.WebApiProvider', '
 /**
  * runtime configuration
  */
-run(['$rootScope', 'Environment', '$log', '$templateCache', 'es.Services.Globals', '$location', 'EsUser', 'UrlManager', 'EntersoftClient', function($rootScope, Environment, $log, $templateCache, esGlobals, $location, EsUser, UrlManager, EntersoftClient) {
-    EntersoftClient.getRunnerConfiguration.apply(this, arguments);
-}]);
+run([
+    '$rootScope', 
+    'Environment', 
+    '$log', 
+    '$templateCache', 
+    'es.Services.Globals', 
+    '$location', 
+    'EsUser', 
+    'UrlManager', 
+    'EntersoftClient', 
+    function($rootScope, Environment, $log, $templateCache, esGlobals, $location, EsUser, UrlManager, EntersoftClient) {
+        EntersoftClient.getRunnerConfiguration.apply(this, arguments);
+    }
+]);
