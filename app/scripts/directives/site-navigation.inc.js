@@ -3,8 +3,8 @@
 *
 * Description
 */
-import templateServiceModule from '../services/template';
 import $ from 'jquery';
+import templateServiceModule from '../services/template';
 
 angular.module('app.directives.navigation', [templateServiceModule]).
 directive('siteNavigation', ['es.Services.WebApi', '$rootScope', '$location', 'TemplateService', '$compile', 'Environment', 'es.Services.Globals', function (WebApi, $rootScope, $location, $templateService, $compile, Environment, esGlobals) {
@@ -18,7 +18,7 @@ directive('siteNavigation', ['es.Services.WebApi', '$rootScope', '$location', 'T
         scope: {}, // {} = isolate, true = child, false/undefined = no change
         bindToController: true,
         controllerAs: 'ctrl',
-        controller: function($scope, $element, $attrs, $transclude) {
+        controller: ['$scope', '$element', '$attrs', '$transclude', function($scope, $element, $attrs, $transclude) {
             var self = this;
 
             this.logout = function() {
@@ -56,7 +56,7 @@ directive('siteNavigation', ['es.Services.WebApi', '$rootScope', '$location', 'T
                 console.log('navigation: ', self.session)
             });
 
-        },
+        }],
         // require: 'ngModel', // Array = multiple requires, ? = optional, ^ = check parent elements
         restrict: 'E', // E = Element, A = Attribute, C = Class, M = Comment
         //templateUrl: 'templates/site-navigation.tpl.html',
