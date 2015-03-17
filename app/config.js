@@ -10,52 +10,52 @@ System.config({
 
 System.config({
   "map": {
-    "angular": "bower:angular@1.3.14",
-    "angular-animate": "bower:angular-animate@1.3.14",
+    "angular": "github:angular/bower-angular@1.3.14",
+    "angular-animate": "github:angular/bower-angular-animate@1.3.14",
     "angular-loading-bar": "bower:angular-loading-bar@0.7.1",
     "angular-motion": "bower:angular-motion@0.3.4",
-    "angular-route": "bower:angular-route@1.3.14",
-    "angular-sanitize": "bower:angular-sanitize@1.3.14",
+    "angular-route": "github:angular/bower-angular-route@1.3.14",
+    "angular-sanitize": "github:angular/bower-angular-sanitize@1.3.14",
     "angular-utils-pagination": "bower:angular-utils-pagination@0.5.1",
     "bootstrap": "github:twbs/bootstrap@3.3.2",
+    "css": "github:systemjs/plugin-css@0.1.6",
     "eswebapiangularjs": "bower:eswebapiangularjs@0.0.44",
     "jquery": "bower:jquery@2.1.3",
     "lodash": "npm:lodash@3.5.0",
     "moment": "npm:moment@2.9.0",
     "ngstorage": "bower:ngstorage@0.3.0",
-    //"stacktrace-js": "bower:stacktrace-js@0.6.4",
     "toastr": "bower:toastr@2.1.1",
-    "bower:angular-animate@1.3.14": {
-      "angular": "bower:angular@1.3.14"
-    },
     "bower:angular-loading-bar@0.7.1": {
-      "angular": "bower:angular@1.3.14",
+      "angular": "github:angular/bower-angular@1.3.14",
       "css": "github:systemjs/plugin-css@0.1.6"
     },
     "bower:angular-motion@0.3.4": {
-      "angular": "bower:angular@1.3.14",
-      "angular-animate": "bower:angular-animate@1.3.14",
+      "angular": "github:angular/bower-angular@1.3.14",
+      "angular-animate": "github:angular/bower-angular-animate@1.3.14",
       "css": "github:systemjs/plugin-css@0.1.6"
     },
-    "bower:angular-route@1.3.14": {
-      "angular": "bower:angular@1.3.14"
-    },
-    "bower:angular-sanitize@1.3.14": {
-      "angular": "bower:angular@1.3.14"
-    },
     "bower:eswebapiangularjs@0.0.44": {
-      "angular-sanitize": "bower:angular-sanitize@1.3.14",
-      "angularjs": "bower:angularjs@1.3.14",
+      "angular-sanitize": "github:angular/bower-angular-sanitize@1.3.14",
+      "angularjs": "github:angular/bower-angularjs@1.3.14",
       "log4javascript": "bower:log4javascript@1.4.9",
       "ngstorage": "bower:ngstorage@0.3.0",
-      "stacktrace-js": "bower:stacktrace-js@0.6.4",
+      "stacktrace-js": "bower:stacktrace-js@0.6.4"
     },
     "bower:ngstorage@0.3.0": {
-      "angular": "bower:angular@1.3.14"
+      "angular": "github:angular/bower-angular@1.3.14"
     },
     "bower:toastr@2.1.1": {
       "css": "github:systemjs/plugin-css@0.1.6",
       "jquery": "bower:jquery@2.1.3"
+    },
+    "github:angular/bower-angular-animate@1.3.14": {
+      "angular": "github:angular/bower-angular@1.3.14"
+    },
+    "github:angular/bower-angular-route@1.3.14": {
+      "angular": "github:angular/bower-angular@1.3.14"
+    },
+    "github:angular/bower-angular-sanitize@1.3.14": {
+      "angular": "github:angular/bower-angular@1.3.14"
     },
     "github:jspm/nodelibs-assert@0.1.0": {
       "assert": "npm:assert@1.3.0"
@@ -171,7 +171,7 @@ System.config({
       "inherits": "npm:inherits@2.0.1",
       "isarray": "npm:isarray@0.0.1",
       "process": "github:jspm/nodelibs-process@0.1.1",
-      "stream": "npm:stream-browserify@1.0.0",
+      "stream": "github:jspm/nodelibs-stream@0.1.0",
       "stream-browserify": "npm:stream-browserify@1.0.0",
       "string_decoder": "npm:string_decoder@0.10.31",
       "util": "github:jspm/nodelibs-util@0.1.0"

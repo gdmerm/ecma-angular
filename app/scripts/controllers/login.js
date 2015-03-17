@@ -1,5 +1,3 @@
-let moduleName = 'app.controllers.login';
-
 class LoginController {
     constructor($location, esWebApi, esGlobals, esUser, $routeParams, UrlManager) {
         this.$location = $location;
@@ -17,7 +15,7 @@ class LoginController {
         this.credentials = {
             UserID: '',
             Password: '',
-            BranchID: 'ΑΘ',
+            BranchID: '\u0391\u0398', // 'ΑΘ' unicode escape. There seems to be a problem with jspm build tool
             LangID: 'el-GR'
         };
     }
@@ -64,6 +62,6 @@ LoginController.$inject = [
     '$routeParams',
     'UrlManager'
 ];
-angular.module(moduleName, []).controller('LoginController', LoginController);
+angular.module('app.controllers.login', []).controller('LoginController', LoginController);
 
-export default moduleName;
+export default 'app.controllers.login';

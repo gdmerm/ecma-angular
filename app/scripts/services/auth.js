@@ -3,8 +3,7 @@
 *
 * Description
 */
-let moduleName = 'app.services.auth';
-angular.module(moduleName, []).
+angular.module('app.services.auth', []).
 service('auth', ['EsUser', 'es.Services.Globals', '$log', '$q', function (EsUser, esGlobals, $log, $q) {
     'use strict';
     this.authorizeRoute = function () {
@@ -22,4 +21,4 @@ service('auth', ['EsUser', 'es.Services.Globals', '$log', '$q', function (EsUser
     };
 }]);
 
-export default moduleName;
+export default 'app.services.auth';
