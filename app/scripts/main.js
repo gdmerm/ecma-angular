@@ -47,6 +47,9 @@ angular.module('app.services', [
     EntersoftClientProvider
 ]);
 
+/**
+ * main module configuration
+ */
 angular.module('app', [
     'ngRoute',
     'ngStorage',
