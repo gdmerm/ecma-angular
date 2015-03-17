@@ -2,6 +2,7 @@ module.exports = function(grunt) {
     require('load-grunt-tasks')(grunt);
     require('time-grunt')(grunt);
 
+
     grunt.initConfig({
         filerev: {
             options: {
@@ -19,6 +20,19 @@ module.exports = function(grunt) {
                 command: 'jspm bundle-sfx --minify scripts/main',
                 stdout: true
             }
+        },
+
+        jshint: {
+            options: {
+                jshintrc: '.jshintrc',
+                reporter: require('jshint-stylish')
+            },
+            all: {
+                src: [
+                    'Gruntfile.js',
+                    'app/scripts/{,*/}*.js'
+                ]
+            }
         }
     });
 
@@ -27,7 +41,12 @@ module.exports = function(grunt) {
     ]);
 
     grunt.registerTask('bundle', [
+        'lintjs',
         'exec:bundle'
+    ]);
+
+    grunt.registerTask('lintjs', [
+        'jshint:all'
     ]);
 
     grunt.registerTask('build', [
