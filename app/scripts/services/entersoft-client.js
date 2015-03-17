@@ -43,11 +43,12 @@ angular.module('app.services.esclient', [])
                 allowUnsecureConnection: true
             });
 
-            var interceptor = ['$q', '$sessionStorage', '$timeout', '$rootScope', '$location', 'SETTINGS', function ($q, $sessionStorage, $timeout, $rootScope, $location, SETTINGS) {
+            var interceptor = ['$q', '$sessionStorage', '$timeout', '$rootScope', '$location', 'SETTINGS', 'auth', function ($q, $sessionStorage, $timeout, $rootScope, $location, SETTINGS, auth) {
                 var httpHandlers = {
                     401: function () {
                         console.log('401 says: ', this);
-                        delete $sessionStorage.__testapp_sesssion;
+                        //delete $sessionStorage.__testapp_sesssion;
+                        auth.logout();
                         if (this.config.url.indexOf('Login') < 0) {
                             $location.path(SETTINGS.SESSION_ERROR_REDIRECT_URL);
                             return noty.error('You seem to have been disconnected. Try to login again');
@@ -74,10 +75,10 @@ angular.module('app.services.esclient', [])
 
                     403: function () {
                         console.log('403 says', this);
+                        auth.logout();
+                        $location.path(SETTINGS.SESSION_ERROR_REDIRECT_URL);
                         var text = this.data;
                         text = 'Your access is forbidden! Try to login <a href="#login">login</a> again.'
-                        //delete $sessionStorage.__esrequest_sesssion;
-                        $location.path('/login');
                         return noty.error(text);
                     },
 
@@ -90,26 +91,19 @@ angular.module('app.services.esclient', [])
                 return {
                     request: function (config) {
                         var session = false;
-
-                        //if (_.indexOf(loaderEnabledUrls, config.url) >= 0) {
-                            $rootScope.$broadcast(SETTINGS.$HTTP_START_REQUEST);
-                        //}
-
+                        $rootScope.$broadcast(SETTINGS.$HTTP_START_REQUEST);
                         //pass token for protected pages
                         if (typeof $sessionStorage.__testapp_sesssion !== 'undefined' && $sessionStorage.__testapp_sesssion !== null) {
                             session = $sessionStorage.__testapp_sesssion;
                         }
-
                         if (session) {
                             config.headers.Authorization = 'Bearer ' + session.WebApiToken;
                         }
-
                         return config;
                     },
 
                     response: function (response) {
                         $rootScope.$broadcast(SETTINGS.$HTTP_END_REQUEST);
-
                         return response;
                     },
 
@@ -127,7 +121,7 @@ angular.module('app.services.esclient', [])
         },
         $get: function () {
             return {
-                getRunnerConfiguration: function ($rootScope, Environment, $log, $templateCache, esGlobals, $location, EsUser, UrlManager) {
+                getRunnerConfiguration: function ($rootScope, Environment, $log, $templateCache, esGlobals, $location, EsUser, UrlManager, SETTINGS) {
                     /**
                      * a list of protected pages
                      * @type {Array}
@@ -140,7 +134,7 @@ angular.module('app.services.esclient', [])
                             var redirect = $location.path();
                             UrlManager.redirectQueryString = $location.search();
                             $location.url($location.path());
-                            $location.path('/login');
+                            $location.path(SETTINGS.SESSION_ERROR_REDIRECT_URL);
                             $location.search('onsuccessredirect', redirect);
                         }
                     });
@@ -153,7 +147,7 @@ angular.module('app.services.esclient', [])
 
                     $rootScope.$on('$routeChangeStart', function(event, next, current) {
                         //disable template caching on dev stage
-                        if (next.$$route) {
+                        if (next && next.$$route) {
                             if (Environment.isDev() && typeof next !== 'undefined') {
                                 $log.info('purging cached template: ', next.$$route.templateUrl)
                                 $templateCache.remove(next.$$route.templateUrl);

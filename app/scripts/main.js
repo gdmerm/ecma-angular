@@ -4,10 +4,16 @@ import toastr from 'toastr';
 import angular from 'angular';
 import angularRoute from 'angular-route';
 import angularAnimate from 'angular-animate';
+
+//import application controllers
 import HomeController from './controllers/home';
 import LoginController from './controllers/login';
+
+//import application directives
 import navigationDirective from './directives/site-navigation.inc';
 import ngenterDirective from './directives/ngenter';
+
+//import application services
 import authService from './services/auth';
 import Environment from './services/environment';
 import EsUser from './services/esuser';
@@ -22,8 +28,9 @@ import ngStorage from 'ngstorage';
 import ngSanitize from 'angular-sanitize';
 import webapi from 'eswebapiangularjs';
 
-//import libraries
-
+/**
+ * declare application dependencies
+ */
 angular.module('app.controllers', [
     HomeController,
     LoginController
@@ -51,13 +58,14 @@ angular.module('app', [
     'app.services'
 ]).
 constant('SETTINGS', {
-    SESSION_ERROR_REDIRECT_URL: '/login',
-    SESSION_LOGOUT_REDIRECT: '/login',
+    SESSION_ERROR_REDIRECT_URL: '/',
+    SESSION_LOGOUT_REDIRECT: '/',
     $HTTP_START_REQUEST: '$http:request:start',
     $HTTP_END_REQUEST: '$http:request:end',
 }).
 config(['$routeProvider', 'EnvironmentProvider', 'es.Services.WebApiProvider', '$httpProvider', 'EntersoftClientProvider', ($routeProvider, EnvironmentProvider, esWebApiProvider, $httpProvider, EntersoftClientProvider) => {
 
+    //automatic provider configuration
     EntersoftClientProvider.configureClientDefaults(
         EnvironmentProvider, 
         esWebApiProvider,
@@ -83,7 +91,8 @@ config(['$routeProvider', 'EnvironmentProvider', 'es.Services.WebApiProvider', '
         .when('/home', {
             templateUrl: 'views/home.html',
             controller: 'HomeController',
-            controllerAs: 'ctrl'
+            controllerAs: 'ctrl',
+            resolve: routeAuthorizationsChecks.loggedIn
         });
 }]).
 /**
@@ -98,8 +107,9 @@ run([
     '$location', 
     'EsUser', 
     'UrlManager', 
+    'SETTINGS',
     'EntersoftClient', 
-    function($rootScope, Environment, $log, $templateCache, esGlobals, $location, EsUser, UrlManager, EntersoftClient) {
+    function($rootScope, Environment, $log, $templateCache, esGlobals, $location, EsUser, UrlManager, SETTINGS, EntersoftClient) {
         EntersoftClient.getRunnerConfiguration.apply(this, arguments);
     }
 ]);

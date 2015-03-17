@@ -5,7 +5,7 @@
 */
 let moduleName = 'app.services.auth';
 angular.module(moduleName, []).
-service('auth', ['EsUser', '$log', '$q', function (EsUser, $log, $q) {
+service('auth', ['EsUser', 'es.Services.Globals', '$log', '$q', function (EsUser, esGlobals, $log, $q) {
     'use strict';
     this.authorizeRoute = function () {
             var user = new EsUser();
@@ -15,6 +15,11 @@ service('auth', ['EsUser', '$log', '$q', function (EsUser, $log, $q) {
                 return $q.reject('auth:notauthorized');
             }
     }; 
+
+    this.logout = function () {
+        //WebApi.logout();
+        esGlobals.currentUser.logout();
+    };
 }]);
 
 export default moduleName;
