@@ -1,6 +1,7 @@
 module.exports = function(grunt) {
     require('load-grunt-tasks')(grunt);
     require('time-grunt')(grunt);
+    grunt.loadNpmTasks('grunt-contrib-copy');
 
 
     grunt.initConfig({
@@ -33,6 +34,33 @@ module.exports = function(grunt) {
                     'app/scripts/{,*/}*.js'
                 ]
             }
+        },
+
+        clean: {
+            dist: {
+                files: [{
+                    dot: true,
+                    src: [
+                        '.tmp',
+                        'dist/{,*/}*',
+                        '!dist/.git*'
+                    ]
+                }]
+            }
+        },
+
+        copy: {
+            main: {
+                files: [
+                    {cwd: 'app', src: 'views/**', dest: 'dist/', expand: true },
+                    {cwd: 'app', src: 'templates/**', dest: 'dist/', expand: true },
+                    {cwd: 'app', src: 'images/**', dest: 'dist/', expand: true },
+                    {cwd: 'app', src: 'fonts/**', dest: 'dist/', expand: true },
+                    {cwd: 'app', src: 'styles/**', dest: 'dist/', expand: true },
+                    {cwd: 'app/jspm_packages', src:['traceur-runtime.js', 'traceur-runtime.js.map'], dest: 'dist/scripts/', filter: 'isFile', expand: true},
+                    {cwd: 'app', src:'index.html', dest: 'dist', filter: 'isFile', expand: true}
+                ]
+            }
         }
     });
 
@@ -50,7 +78,9 @@ module.exports = function(grunt) {
     ]);
 
     grunt.registerTask('build', [
+        'clean:dist',
         'exec:bundle',
+        'copy:main',
         'filerev:scripts'
     ]);
 };
