@@ -5,22 +5,17 @@
     <meta name="description" content="">
     <meta content='width=device-width, initial-scale=1, maximum-scale=1, user-scalable=0' name='viewport' />
 
-    <!-- build:css(app) styles/vendor.css -->
-    <!-- bower:css -->
+    <!-- build:css(app) -->
     <link rel="stylesheet" href="jspm_packages/bower/angular-loading-bar@0.7.1/src/loading-bar.css">
     <link rel="stylesheet" href="jspm_packages/github/twbs/bootstrap@3.3.2/css/bootstrap.min.css">
     <link rel="stylesheet" href="jspm_packages/bower/angular-motion@0.3.4/dist/angular-motion.min.css">
     <link rel="stylesheet" href="jspm_packages/bower/toastr@2.1.1/toastr.min.css">
-    <!-- endbower -->
+    <link rel="stylesheet" href="styles/common.css">
+    <link rel="stylesheet" href="styles/ctrl-login.css">
     <!-- endbuild -->
 
     <link href='//fonts.googleapis.com/css?family=Roboto:400,300,500' rel='stylesheet' type='text/css'>
     <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet">
-
-    <!-- build:css(.tmp) styles/app.css -->
-    <link rel="stylesheet" href="styles/common.css">
-    <link rel="stylesheet" href="styles/ctrl-login.css">
-    <!-- endbuild -->
 
 </head>
 <body ng-app="app">
@@ -33,11 +28,11 @@
         </div>        
     </div>
 
+    <!-- build:js(app) -->
     <script src="jspm_packages/system.js"></script>
     <script src="config.js"></script>
-    <script>
-        System.import('scripts/main');
-    </script>
+    <script>System.import('scripts/main');</script>
+    <!-- endbuild -->
 
     <!--
     <script src="jspm_packages/traceur-runtime.js"></script>
