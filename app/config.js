@@ -10,12 +10,13 @@ System.config({
 
 System.config({
   "map": {
-    "angular": "github:angular/bower-angular@1.3.14",
+    "angular": "github:angular/bower-angular@1.3.15",
     "angular-animate": "github:angular/bower-angular-animate@1.3.14",
     "angular-loading-bar": "bower:angular-loading-bar@0.7.1",
     "angular-motion": "bower:angular-motion@0.3.4",
     "angular-route": "github:angular/bower-angular-route@1.3.14",
     "angular-sanitize": "github:angular/bower-angular-sanitize@1.3.14",
+    "angular-strap": "github:mgcrea/angular-strap@2.2.1",
     "angular-utils-pagination": "bower:angular-utils-pagination@0.5.1",
     "bootstrap": "github:twbs/bootstrap@3.3.2",
     "css": "github:systemjs/plugin-css@0.1.6",
@@ -26,11 +27,11 @@ System.config({
     "ngstorage": "bower:ngstorage@0.3.0",
     "toastr": "bower:toastr@2.1.1",
     "bower:angular-loading-bar@0.7.1": {
-      "angular": "github:angular/bower-angular@1.3.14",
+      "angular": "github:angular/bower-angular@1.3.15",
       "css": "github:systemjs/plugin-css@0.1.6"
     },
     "bower:angular-motion@0.3.4": {
-      "angular": "github:angular/bower-angular@1.3.14",
+      "angular": "github:angular/bower-angular@1.3.15",
       "angular-animate": "github:angular/bower-angular-animate@1.3.14",
       "css": "github:systemjs/plugin-css@0.1.6"
     },
@@ -42,20 +43,20 @@ System.config({
       "stacktrace-js": "bower:stacktrace-js@0.6.4"
     },
     "bower:ngstorage@0.3.0": {
-      "angular": "github:angular/bower-angular@1.3.14"
+      "angular": "github:angular/bower-angular@1.3.15"
     },
     "bower:toastr@2.1.1": {
       "css": "github:systemjs/plugin-css@0.1.6",
       "jquery": "bower:jquery@2.1.3"
     },
     "github:angular/bower-angular-animate@1.3.14": {
-      "angular": "github:angular/bower-angular@1.3.14"
+      "angular": "github:angular/bower-angular@1.3.15"
     },
     "github:angular/bower-angular-route@1.3.14": {
-      "angular": "github:angular/bower-angular@1.3.14"
+      "angular": "github:angular/bower-angular@1.3.15"
     },
     "github:angular/bower-angular-sanitize@1.3.14": {
-      "angular": "github:angular/bower-angular@1.3.14"
+      "angular": "github:angular/bower-angular@1.3.15"
     },
     "github:jspm/nodelibs-assert@0.1.0": {
       "assert": "npm:assert@1.3.0"
@@ -94,6 +95,9 @@ System.config({
     },
     "github:jspm/nodelibs-util@0.1.0": {
       "util": "npm:util@0.10.3"
+    },
+    "github:mgcrea/angular-strap@2.2.1": {
+      "angular": "github:angular/bower-angular@1.3.15"
     },
     "github:systemjs/plugin-css@0.1.6": {
       "clean-css": "npm:clean-css@3.0.10",

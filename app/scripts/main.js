@@ -1,3 +1,4 @@
+import jquery from 'jquery';
 import toastr from 'toastr';
 
 //import angular
@@ -22,6 +23,7 @@ import EntersoftClientProvider from './services/entersoft-client';
 
 //import plugins
 import loadingBar from 'angular-loading-bar';
+import angularStrap from 'angular-strap';
 
 //import webapi and dependencies
 import ngStorage from 'ngstorage';
@@ -55,6 +57,7 @@ angular.module('app', [
     'ngStorage',
     'ngAnimate',
     'angular-loading-bar',
+    'mgcrea.ngStrap',
     'es.Services.Web',
     'app.controllers',
     'app.directives',
