@@ -18,6 +18,10 @@ module.exports = function(grunt) {
             scripts: {
                 src: 'app/build.js',
                 dest: 'dist/scripts'
+            },
+            css: {
+                src: 'dist/styles/app.min.css',
+                dest: 'dist/styles'
             }
         },
 
@@ -81,18 +85,22 @@ module.exports = function(grunt) {
             indexFile: {
                 options: {
                     process: function (content, srcpath) {
+                        console.log(grunt.filerev.summary)
                         var stringToReplace; 
                         var js = 
-                            '<script src="traceur-runtime.js"></script>\n' +
+                            '<script src="scripts/traceur-runtime.js"></script>\n' +
                             '<script src="' + grunt.filerev.summary['app/build.js'].replace('dist/', '') + '"></script>\n';
-                            
+                        var css = 
+                            '<link rel="stylesheet" href="styles/vendor.min.css" >\n' +
+                            '<link rel="stylesheet" href="' + grunt.filerev.summary['dist/styles/app.min.css'].replace('dist/', '') + '">\n';
+
                         //replace the script includes with the production ones
                         stringToReplace = /<\!-- build:js\(app\) --\>(.|\n)*?<\!-- endbuild --\>/gi;
                         content = content.replace(stringToReplace, js);
 
                         //replace css links
                         stringToReplace = /<\!-- build:css\(app\) --\>(.|\n)*?<\!-- endbuild --\>/gi;
-                        content = content.replace(stringToReplace, '<link rel="stylesheet" href="app.min.css">');
+                        content = content.replace(stringToReplace, css);
                         return content;
                     }
                 },
@@ -140,15 +148,25 @@ module.exports = function(grunt) {
          * concatenates all separately minified css files into app.min.css
          */
         concat: {
-            options: {
-                sourceMap: true,
-                process: function (src, filepath) {
-                    return src.replace(/file/gi, filepath);
-                }
-            },
             dist_css: {
+                options: {
+                    sourceMap: true,
+                    process: function (src, filepath) {
+                        return src.replace(/file/gi, filepath);
+                    }
+                },
                 files: {
                     'dist/styles/app.min.css': ['dist/styles/{,*/}*.css']
+                }
+            },
+            dist_vendor_css: {
+                files: {
+                    'dist/styles/vendor.min.css': [
+                        'app/jspm_packages/bower/angular-loading-bar@0.7.1/src/loading-bar.css',
+                        'app/jspm_packages/github/twbs/bootstrap@3.3.2/css/bootstrap.css',
+                        'app/jspm_packages/bower/angular-motion@0.3.4/dist/angular-motion.min.css',
+                        'app/jspm_packages/bower/toastr@2.1.1/toastr.min.css',
+                    ]
                 }
             }
         },
@@ -174,8 +192,10 @@ module.exports = function(grunt) {
         'copy:main',
         'cssmin',
         'concat:dist_css',
+        'concat:dist_vendor_css',
         'autoprefixer:dist',
         'filerev:scripts',
+        'filerev:css',
         'copy:indexFile'
     ]);
 };
